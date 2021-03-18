@@ -291,6 +291,8 @@ public final class AutoFarmHack extends Hack
 				&& !(BlockUtils.getBlock(pos.down(2)) instanceof BambooBlock);
 		else if(block instanceof CocoaBlock)
 			return state.get(CocoaBlock.AGE) >= 2;
+		else if(block instanceof ChorusFlowerBlock)
+			return state.get(ChorusFlowerBlock.AGE) >= 5;
 		
 		return false;
 	}
@@ -306,6 +308,8 @@ public final class AutoFarmHack extends Hack
 		seeds.put(Blocks.MELON_STEM, Items.MELON_SEEDS);
 		seeds.put(Blocks.NETHER_WART, Items.NETHER_WART);
 		seeds.put(Blocks.COCOA, Items.COCOA_BEANS);
+		seeds.put(Blocks.CHORUS_PLANT, Blocks.CHORUS_FLOWER);
+		seeds.put(Blocks.CHORUS_FLOWER, Blocks.CHORUS_FLOWER);
 		
 		plants.putAll(blocks.parallelStream()
 			.filter(pos -> seeds.containsKey(BlockUtils.getBlock(pos)))
